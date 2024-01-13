@@ -9,6 +9,27 @@ $fa-font-path: "../fonts/webfonts" !default;
 
 @import '~bootstrap/scss/bootstrap';
 
-h1 {
-    color: $text-color;
+#projects-index {
+    h1 {
+        text-align: center;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    td {
+        vertical-align: middle !important;
+    }
+    .logo-container {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+    .table a {
+        text-decoration: none;
+        margin: 1.8px 0;
+    }
 }
