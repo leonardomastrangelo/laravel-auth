@@ -28,7 +28,7 @@
                     <td>{{$project->id}}</td>
                     <td>{{$project->user_id}}</td>
                     <td>{{$project->title}}</td>
-                    <td>{{$project->description}}</td>
+                    <td class="desc">{{$project->description}}</td>
                     <td class="text-center"> {{-- OPERATIONS --}}
                         <a class="btn btn-info" href="{{route('admin.projects.show', $project->id)}}">
                             <i class="fa-solid fa-eye"></i>

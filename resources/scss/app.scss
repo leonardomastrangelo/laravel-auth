@@ -21,6 +21,9 @@ h1 {
     td {
         vertical-align: middle !important;
     }
+    th {
+        vertical-align: middle!important;
+    }
     .logo-container {
         width: 80px;
         height: 80px;
@@ -30,6 +33,10 @@ h1 {
             display: block;
             width: 100%;
         }
+    }
+    .desc {
+        height: 142px;
+        overflow-y: auto;
     }
     .table .btn {
         text-decoration: none;
