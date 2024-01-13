@@ -44,7 +44,7 @@ class ProjectController extends Controller
         // create new post
         $newProject = Project::create($formData);
         // redirect to the post show page with the new post id
-        return to_route('admin.posts.show', $newProject->id);
+        return to_route('admin.projects.show', $newProject->id);
 
     }
 
@@ -77,7 +77,7 @@ class ProjectController extends Controller
         // take user id
         $formData['user_id'] = $project->user_id;
         $project->fill($formData)->update();
-        return to_route('admin.posts.show', $project->id);
+        return to_route('admin.projects.show', $project->id);
     }
 
     /**

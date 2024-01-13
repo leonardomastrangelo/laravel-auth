@@ -10,11 +10,14 @@ $fa-font-path: "../fonts/webfonts" !default;
 @import '~bootstrap/scss/bootstrap';
 
 h1 {
+    padding: 40px 0;
+}
+#projects-index {
+    h1 {
     text-align: center;
     font-weight: 500;
     text-transform: uppercase;
-}
-#projects-index {
+    }
     td {
         vertical-align: middle !important;
     }
@@ -28,17 +31,18 @@ h1 {
             width: 100%;
         }
     }
-    .table a {
+    .table .btn {
         text-decoration: none;
         margin: 1.8px 0;
     }
 }
 #projects-show {
-    h1 {
-        font-weight: 500;
-        padding: 30px 0;
-    }
     overflow: hidden;
+    h1 {
+    text-align: center;
+    font-weight: 500;
+    text-transform: uppercase;
+    }
 
     #project-prev {
         width: 90%;
@@ -52,6 +56,27 @@ h1 {
             width: 100%;
             object-fit: cover;
             border-radius: 10px;
+        }
+    }
+}
+#projects-create {
+    h1 {
+    text-align: center;
+    font-weight: 500;
+    text-transform: uppercase;
+    }
+    .form-group {
+        padding: 20px 0;
+        margin: 0 auto;
+        input {
+            text-align: center;
+        }
+        label {
+            font-size: 1.6em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
         }
     }
 }
