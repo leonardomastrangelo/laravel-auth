@@ -12,7 +12,55 @@ $fa-font-path: "../fonts/webfonts" !default;
 h1 {
     padding: 40px 0;
 }
-
+#sidebar {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $prussian-blue;
+    h2 {
+        font-size: 1.4em;
+        padding: 20px 0;
+        color: white;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        li {
+            padding: 10px 0;
+            i {
+                font-size: 1.5em;
+                vertical-align: middle;
+                margin-right: 8px;
+                color: $selective-yellow;
+            }
+            span {
+                vertical-align: middle;
+            }
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+    .btn-primary { 
+        margin: 20px 0;
+    }
+}
+.wd-10 {
+    width: 10%;
+}
+.wd-90 {
+    width: 90%;
+}
+.wd-100 {
+    width: 100%;
+}
+#main-content {
+    height: 100vh;
+    overflow-y: auto;
+}
 #projects-index {
     h1 {
     font-weight: 500;
@@ -93,48 +141,4 @@ h1 {
     font-size: 1.6em;
     font-weight: 500;
 }
-#sidebar {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    background-color: $prussian-blue;
-    h2 {
-        font-size: 1.4em;
-        padding: 20px 0;
-        color: white;
-    }
-    ul {
-        list-style: none;
-        padding: 0;
-        li {
-            padding: 10px 0;
-            i {
-                font-size: 1.5em;
-                vertical-align: middle;
-                margin-right: 8px;
-                color: $selective-yellow;
-            }
-            span {
-                vertical-align: middle;
-            }
-        }
-        a {
-            text-decoration: none;
-            color: white;
-        }
-    }
-    .btn-primary { 
-        margin: 20px 0;
-    }
-}
-.wd-10 {
-    width: 10%;
-}
-.wd-90 {
-    width: 90%;
-}
-.wd-100 {
-    width: 100%;
-}
+
