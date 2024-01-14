@@ -2,6 +2,12 @@
 @section('content')
     <section id="projects-index" class="container-fluid">
         <h1 class="display-1">My projects</h1>
+
+        @if (session()->has('success'))
+            <div class="alert alert-danger d-inline-block">
+                {{session('success')}}
+            </div>
+        @endif
         
         {{-- PROJECTS' TABLE --}}
         <table class="table">

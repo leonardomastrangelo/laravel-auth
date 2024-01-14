@@ -1,4 +1,4 @@
-<section id="sidebar" class="wd-25 container-fluid">
+<section id="sidebar" class="wd-10 container-fluid">
     <div>
         @auth  
         <h2>

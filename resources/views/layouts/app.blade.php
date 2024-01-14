@@ -23,7 +23,7 @@
     <div id="app" class="d-flex">
 
         @include('partials.sidebar')
-        <main id="main-content" class="wd-75">
+        <main id="main-content" class="wd-90">
             @include('partials.navbar')
             @yield('content')
         </main>

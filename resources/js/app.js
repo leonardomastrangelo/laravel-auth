@@ -48,7 +48,7 @@ btnForSideMinimize.addEventListener("click", () => {
     // show btnForSideExpand
     right.classList.remove("d-none");
     // making 100% width of main-content
-    mainContent.classList.remove("wd-75");
+    mainContent.classList.remove("wd-90");
     mainContent.classList.add("wd-100");
 });
 
