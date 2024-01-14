@@ -7,7 +7,6 @@ const btns = document.querySelectorAll(".btn-danger");
 
 btns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-        console.log(e);
         // preventing to send form
         e.preventDefault();
 
@@ -33,4 +32,31 @@ btns.forEach((btn) => {
             btn.parentElement.submit();
         });
     });
+});
+
+const sidebar = document.getElementById("sidebar");
+const mainContent = document.querySelector("#main-content");
+const btnForSideMinimize = document.querySelector(".fa-circle-chevron-left");
+const btnForSideExpand = document.querySelector(".fa-circle-chevron-right");
+const left = document.querySelector(".left");
+const right = document.querySelector(".right");
+btnForSideMinimize.addEventListener("click", () => {
+    // toggle sidebar
+    sidebar.classList.toggle("d-none");
+    // hide btnForSideMinimize
+    left.classList.add("d-none");
+    // show btnForSideExpand
+    right.classList.remove("d-none");
+    // making 100% width of main-content
+    mainContent.classList.remove("wd-75");
+    mainContent.classList.add("wd-100");
+});
+
+btnForSideExpand.addEventListener("click", () => {
+    // toggle sidebar
+    document.querySelector("#sidebar").classList.toggle("d-none");
+    // hide btnForSideExpand
+    right.classList.add("d-none");
+    // show btnForSideMinimize
+    left.classList.remove("d-none");
 });

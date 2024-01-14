@@ -20,6 +20,9 @@
                 <button class="btn btn-danger text-center" type="submit" data-item-title="{{$project->title}}">
                     <i class="fa-solid fa-trash"></i>
                 </button>
+
+                {{-- modal_delete --}}
+                @include('partials.modal_delete')
             </form>
         </div>
     </section>
