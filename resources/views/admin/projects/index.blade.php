@@ -28,8 +28,8 @@
                     <td>{{$project->id}}</td>
                     <td>{{$project->user_id}}</td>
                     <td>{{$project->title}}</td>
-                    <td class="desc">{{$project->description}}</td>
-                    <td class="text-center"> {{-- OPERATIONS --}}
+                    <td class="desc">{{substr($project->description, 0, 180) . '...' }}</td>
+                    <td> {{-- OPERATIONS --}}
                         <a class="btn btn-info" href="{{route('admin.projects.show', $project->id)}}">
                             <i class="fa-solid fa-eye"></i>
                         </a>
@@ -42,11 +42,14 @@
                             <button class="btn btn-danger text-center" type="submit" data-item-title="{{$project->title}}">
                                 <i class="fa-solid fa-trash"></i>
                             </button>
+                            {{-- modal_delete --}}
+                            @include('partials.modal_delete')
                         </form>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+
     </section>
 @endsection
