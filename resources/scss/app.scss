@@ -15,6 +15,30 @@ html {
 h1 {
     padding: 40px 0;
 }
+.wd-10 {
+    width: 13%;
+}
+.wd-90 {
+    width: 87%;
+}
+.wd-100 {
+    width: 100%;
+}
+.rectangle {
+    width: 300px;
+    height: 157px;
+    margin: 0 auto;
+    img {
+        width: 100%;
+        display: block;
+    }
+}
+#app {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+}
 #sidebar {
     height: 100vh;
     display: flex;
@@ -22,6 +46,7 @@ h1 {
     align-items: center;
     justify-content: space-between;
     background-color: $prussian-blue;
+    padding-top: 60px;
     h2 {
         font-size: 1.4em;
         padding: 20px 0;
@@ -51,30 +76,20 @@ h1 {
         margin: 20px 0;
     }
 }
-.wd-10 {
-    width: 13%;
-}
-.wd-90 {
-    width: 87%;
-}
-.wd-100 {
-    width: 100%;
-}
-.rectangle {
-    width: 300px;
-    height: 157px;
-    margin: 0 auto;
-    img {
-        width: 100%;
-        display: block;
-    }
-}
 #main-content {
-    height: 100vh;
+    height: 100%;
+    position: relative;
     overflow-y: auto;
-    overflow-x: hidden;
     margin-top: 56px;
     margin-bottom: 100px;
+    nav {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        background-color: $prussian-blue;
+    }
 }
 #projects-index {
     margin-bottom: 100px;

@@ -57,6 +57,8 @@ btnForSideExpand.addEventListener("click", () => {
     right.classList.add("d-none");
     // show btnForSideMinimize
     left.classList.remove("d-none");
+    mainContent.classList.remove("wd-100");
+    mainContent.classList.add("wd-90");
 });
 
 const previewImage = document.getElementById("image");

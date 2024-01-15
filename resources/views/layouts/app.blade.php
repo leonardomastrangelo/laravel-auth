@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div id="app" class="d-flex overflow-hidden">
+    <div id="app">
 
         @include('partials.sidebar')
         <main id="main-content" class="wd-90">
