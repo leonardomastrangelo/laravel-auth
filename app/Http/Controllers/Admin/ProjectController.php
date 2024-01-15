@@ -79,22 +79,30 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $formData = $request->validated();
-        // created slug
-        $slug = Str::slug($formData['title'], '-');
-        // add slug to the Form Data
+        // Creazione dello slug
+        $slug = Project::getSlug($formData['title']);
+        // Aggiunta dello slug ai dati del form
         $formData['slug'] = $slug;
-        // take user id
+        // Aggiunta dell'ID dell'utente ai dati del form
         $formData['user_id'] = $project->user_id;
+
         if ($request->hasFile('image')) {
+            // Eliminazione dell'immagine precedente
             if ($project->image) {
                 Storage::delete($project->image);
             }
-            $path = Storage::put('uploads', $formData['image']);
+            // Salvataggio della nuova immagine nello storage con il nome dello slug
+            $image = $request->file('image');
+            $imageName = $slug . '.' . $image->getClientOriginalExtension();
+            $path = $image->storeAs('uploads', $imageName);
             $formData['image'] = $path;
         }
-        $project->fill($formData)->update();
-        return to_route('admin.projects.show', $project->id);
+
+        $project->fill($formData)->save();
+
+        return redirect()->route('admin.projects.show', $project->slug);
     }
+
 
     /**
      * Remove the specified resource from storage.

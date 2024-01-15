@@ -5,7 +5,7 @@
             <h3 class="fs-5">You are editing :</h3>
             <h1 class="display-1 p-0">{{$project->title}}</h1>
         </div>
-        <form action="{{route('admin.projects.update', $project->id)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.projects.update', $project->slug)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group w-50">
