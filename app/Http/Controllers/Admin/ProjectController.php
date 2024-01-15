@@ -34,25 +34,28 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $formData = $request->validated();
-        // created slug
-        $slug = Str::slug($formData['title'], '-');
-        // add slug to the Form Data
+        // Creazione dello slug
+        $slug = Project::getSlug($formData['title']);
+        // Aggiunta dello slug ai dati del form
         $formData['slug'] = $slug;
-        // take user id
+        // Ottenere l'ID dell'utente
         $userId = auth()->id();
-        // add user id to the Form Data
+        // Aggiunta dell'ID dell'utente ai dati del form
         $formData['user_id'] = $userId;
-        // take image from input field and store it in the storage
+        // Salvare l'immagine nello storage con il nome dello slug
         if ($request->hasFile('image')) {
-            $path = Storage::put('uploads', $formData['image']);
+            $image = $request->file('image');
+            $imageName = $slug . '.' . $image->getClientOriginalExtension();
+            $path = $image->storeAs('uploads', $imageName);
             $formData['image'] = $path;
         }
-        // create new post
+        // Creazione di un nuovo progetto
         $newProject = Project::create($formData);
-        // redirect to the post show page with the new post id
-        return to_route('admin.projects.show', $newProject->id);
-
+        // Reindirizzamento alla pagina di visualizzazione del progetto con il nuovo ID del progetto
+        return redirect()->route('admin.projects.show', $newProject->slug);
     }
+
+
 
     /**
      * Display the specified resource.
@@ -98,6 +101,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if ($project->image) {
+            Storage::delete($project->image);
+        }
         $project->delete();
         return to_route('admin.projects.index')->with('success', "Project '$project->title' has been deleted successfully");
     }

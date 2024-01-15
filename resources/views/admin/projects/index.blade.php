@@ -36,13 +36,13 @@
                     <td>{{$project->title}}</td>
                     <td class="desc">{{substr($project->description, 0, 350) . '...' }}</td>
                     <td> {{-- OPERATIONS --}}
-                        <a class="btn btn-info" href="{{route('admin.projects.show', $project->id)}}">
+                        <a class="btn btn-info" href="{{route('admin.projects.show', $project->slug)}}">
                             <i class="fa-solid fa-eye"></i>
                         </a>
-                        <a class="btn btn-warning" href="{{route('admin.projects.edit', $project->id)}}">
+                        <a class="btn btn-warning" href="{{route('admin.projects.edit', $project->slug)}}">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
-                        <form action="{{route('admin.projects.destroy', $project->id)}}" method="POST">
+                        <form action="{{route('admin.projects.destroy', $project->slug)}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger text-center" type="submit" data-item-title="{{$project->title}}">

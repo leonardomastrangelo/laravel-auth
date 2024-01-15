@@ -13,8 +13,8 @@
 
         <div class="text-center mb-5">
             <h2 class="fs-1 text-uppercase">Operations</h2>
-            <a class="btn btn-primary" href="{{route('admin.projects.edit', $project->id)}}">Edit</a>
-            <form class="d-inline-block" action="{{route('admin.projects.destroy', $project->id)}}" method="POST">
+            <a class="btn btn-primary" href="{{route('admin.projects.edit', $project->slug)}}">Edit</a>
+            <form class="d-inline-block" action="{{route('admin.projects.destroy', $project->slug)}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-danger text-center" type="submit" data-item-title="{{$project->title}}">
