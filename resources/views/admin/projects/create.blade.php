@@ -2,7 +2,7 @@
 @section('content')
     <section id="projects-create" class="container">
         <h1 class="display-1">Insert a Project</h1>
-        <form action="{{route('admin.projects.store')}}" method="POST">
+        <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group w-50">
                 <label for="title">Title</label>
@@ -18,9 +18,12 @@
             @error('logo')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
-            <div class="form-group w-25">
+            <div class="form-group w-50">
                 <label for="image">Image</label>
-                <input type="text" class="form-control @error('image') is-invalid @enderror" id="image" name="image" placeholder="image.png" maxlength="255" minlength="3" value="{{old('image')}}">
+                <div class="rectangle">
+                    <img id="uploadPreview" src="https://fakeimg.pl/300x157" alt="preview">
+                </div>
+                <input type="file" class="form-control w-50 m-auto @error('image') is-invalid @enderror" id="image" name="image">
             </div>
             @error('logo')
                 <div class="invalid-feedback">{{ $message }}</div>

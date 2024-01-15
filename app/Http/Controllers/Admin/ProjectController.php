@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -41,6 +42,11 @@ class ProjectController extends Controller
         $userId = auth()->id();
         // add user id to the Form Data
         $formData['user_id'] = $userId;
+        // take image from input field and store it in the storage
+        if ($request->hasFile('image')) {
+            $path = Storage::put('uploads', $formData['image']);
+            $formData['image'] = $path;
+        }
         // create new post
         $newProject = Project::create($formData);
         // redirect to the post show page with the new post id
@@ -76,6 +82,13 @@ class ProjectController extends Controller
         $formData['slug'] = $slug;
         // take user id
         $formData['user_id'] = $project->user_id;
+        if ($request->hasFile('image')) {
+            if ($project->image) {
+                Storage::delete($project->image);
+            }
+            $path = Storage::put('uploads', $formData['image']);
+            $formData['image'] = $path;
+        }
         $project->fill($formData)->update();
         return to_route('admin.projects.show', $project->id);
     }

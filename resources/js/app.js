@@ -4,7 +4,6 @@ import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**", "../fonts/**"]);
 
 const btns = document.querySelectorAll(".btn-danger");
-
 btns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
         // preventing to send form
@@ -51,7 +50,6 @@ btnForSideMinimize.addEventListener("click", () => {
     mainContent.classList.remove("wd-90");
     mainContent.classList.add("wd-100");
 });
-
 btnForSideExpand.addEventListener("click", () => {
     // toggle sidebar
     document.querySelector("#sidebar").classList.toggle("d-none");
@@ -59,4 +57,13 @@ btnForSideExpand.addEventListener("click", () => {
     right.classList.add("d-none");
     // show btnForSideMinimize
     left.classList.remove("d-none");
+});
+
+const previewImage = document.getElementById("image");
+previewImage.addEventListener("change", (e) => {
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(previewImage.files[0]);
+    oFReader.onload = function (oFREvent) {
+        document.getElementById("uploadPreview").src = oFREvent.target.result;
+    };
 });

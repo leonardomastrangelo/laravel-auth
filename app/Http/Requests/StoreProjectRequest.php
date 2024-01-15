@@ -24,7 +24,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' => ['required', 'min:3', 'max:200', 'unique:projects'],
             'logo' => ['nullable', 'min:4', 'max:255'],
-            'image' => ['nullable', 'min:4', 'max:255'],
+            'image' => ['nullable', 'image'],
             'description' => ['nullable'],
         ];
     }
@@ -37,8 +37,7 @@ class StoreProjectRequest extends FormRequest
             'title.unique' => 'The title has already been taken.',
             'logo.min' => 'The logo must be at least :min characters.',
             'logo.max' => 'The logo may not be greater than :max characters.',
-            'image.min' => 'The image must be at least :min characters.',
-            'image.max' => 'The image may not be greater than :max characters.',
+            'image.image' => 'The image must be an image.',
         ];
     }
 }

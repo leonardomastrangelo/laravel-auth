@@ -3,7 +3,7 @@
     <section id="projects-show">
         <h1 class="display-1">{{$project->title}}</h1>
         <div id="project-prev">
-            <img src="{{Vite::asset("/resources/img/$project->image")}}" alt="{{$project->title}}">
+            <img src="{{ asset('storage/' . $project->image) }}" alt="{{$project->title}}">
         </div>
 
         <div class="py-5 container text-center">
@@ -11,7 +11,7 @@
             <p>{{$project->description}}</p>
         </div>
 
-        <div class="text-center pb-5">
+        <div class="text-center mb-5">
             <h2 class="fs-1 text-uppercase">Operations</h2>
             <a class="btn btn-primary" href="{{route('admin.projects.edit', $project->id)}}">Edit</a>
             <form class="d-inline-block" action="{{route('admin.projects.destroy', $project->id)}}" method="POST">
