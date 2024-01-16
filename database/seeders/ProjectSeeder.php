@@ -23,18 +23,17 @@ class ProjectSeeder extends Seeder
             $newProject->title = $project['title'];
             $newProject->slug = Str::slug($project['title'], '-');
             $newProject->logo = $project['logo'];
-            $newProject->image = ProjectSeeder::storeimage($project['image'], $project['title']);
+            $newProject->image = ProjectSeeder::storeimage($project['image'], $newProject->slug);
             $newProject->description = $project['description'];
             $newProject->save();
         }
     }
-    public static function storeimage($img, $name)
+    public static function storeimage($imgUrl, $slug)
     {
-        $url = $img;
-        $contents = file_get_contents($url);
-        $name = Str::slug($name, '-') . '.png';
-        $path = 'uploads/' . $name;
-        Storage::put('images/' . $name, $contents);
-        return $path;
+        $contents = file_get_contents(resource_path('img/' . $imgUrl));
+        $imageName = $slug . '.png';
+        $path = 'uploads/' . $imageName;
+        Storage::put($path, $contents);
+        return $imageName;
     }
 }

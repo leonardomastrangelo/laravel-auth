@@ -27,7 +27,7 @@
                     <th scope="row">
                         <div class="logo-container">
                             <img
-                            src="{{Vite::asset("/resources/img/$project->logo")}}"
+                            src="{{asset('storage/logos/'. $project->logo)}}"
                             alt="{{$project->title}}">
                         </div>
                     </th>

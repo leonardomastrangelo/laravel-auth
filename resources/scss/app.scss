@@ -74,11 +74,11 @@ h1 {
     }
 }
 #main-content {
-    height: 100%;
+    height: calc(100% - 56px);
     position: relative;
     overflow-y: auto;
-    margin-top: 56px;
-    margin-bottom: 100px;
+    margin-top: 60px;
+    padding-bottom: 60px;
     nav {
         position: fixed;
         left: 0;
@@ -89,6 +89,7 @@ h1 {
     }
 }
 #projects-index {
+    overflow: hidden;
     h1 {
     font-weight: 500;
     text-transform: uppercase;
@@ -144,7 +145,7 @@ h1 {
     }
 }
 #projects-create {
-    margin-bottom: 100px;
+    overflow: hidden;
     h1 {
     text-align: center;
     font-weight: 500;

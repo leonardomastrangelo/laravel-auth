@@ -3,7 +3,7 @@
     <section id="projects-show">
         <h1 class="display-1">{{$project->title}}</h1>
         <div id="project-prev">
-            <img src="{{ asset('storage/' . $project->image) }}" alt="{{$project->title}}">
+            <img src="{{ asset('storage/uploads/' . $project->image) }}" alt="{{$project->title}}">
         </div>
 
         <div class="py-5 container text-center">

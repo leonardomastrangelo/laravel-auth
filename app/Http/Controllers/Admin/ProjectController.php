@@ -46,8 +46,8 @@ class ProjectController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = $slug . '.' . $image->getClientOriginalExtension();
-            $path = $image->storeAs('uploads', $imageName);
-            $formData['image'] = $path;
+            $image->storeAs('uploads', $imageName);
+            $formData['image'] = $imageName;
         }
         // Creazione di un nuovo progetto
         $newProject = Project::create($formData);
@@ -110,7 +110,7 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         if ($project->image) {
-            Storage::delete($project->image);
+            Storage::delete('uploads/' . $project->image);
         }
         $project->delete();
         return to_route('admin.projects.index')->with('success', "Project '$project->title' has been deleted successfully");

@@ -25,7 +25,7 @@
             <div class="form-group w-25">
                 <label for="image">Image</label>
                 <div>
-                    <img class="w-100" src="{{asset('storage/' . $project->image)}}" alt="{{$project->title}}">
+                    <img class="w-100" src="{{asset('storage/uploads/' . $project->image)}}" alt="{{$project->title}}">
                 </div>
                 <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
             </div>
