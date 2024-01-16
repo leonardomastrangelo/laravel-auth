@@ -88,6 +88,9 @@ h1 {
         background-color: $prussian-blue;
     }
 }
+#main-content::-webkit-scrollbar {
+    display: none;
+}
 #projects-index {
     overflow: hidden;
     h1 {
